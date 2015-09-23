@@ -7,6 +7,16 @@ public class Course {
     private String name;
     private Type type;
     private int period;
+    private Student theStudent;
+
+    public void addStudent(Student _student)
+    {
+        if(theStudent==null)
+        {
+            theStudent=_student;
+            _student.addCourse(this);
+        }
+    }
     
     
     enum Type
@@ -77,17 +87,15 @@ public class Course {
                 System.out.println(temp.getType());
         }   
     }
+    public static void printAllClasses()
+    {
+        for(Course temp : courses)
+        {
+            if(temp != null)
+                System.out.println("Class: "+temp.getName()+" Period: "+temp.getPeriod()+" Type: "+temp.getType());
+        }   
+    }
     
-//    public static Type getClassType()
-//    {
-//        
-//        if (name.charAt(0) == 'M')
-//        {
-//            return(Person.Gender.Male);
-//        }
-//        else
-//            return(Person.Gender.Female);
-//    }
     
     public static void getInfo()
     {
@@ -105,19 +113,8 @@ public class Course {
     
     public String toString()
     {
-        return(name+" Type: "+type+ "Period: "+period);
+        return(name+" |Type: "+type+ " |Period: "+period);
     }
     
     
-//    public static void printAllInfo(String _name,Person.Gender _gender,int _age,int _weight)
-//    {
-//        System.out.println("================\n"+_name);
-//        for(Person temp : people)
-//        {
-//                System.out.println(temp.getName());
-//                System.out.println(temp.getGender());
-//                System.out.println(temp.getAge());
-//                System.out.println(temp.getWeight());
-//        }   
-//    }
 }

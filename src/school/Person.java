@@ -5,7 +5,10 @@
 package school;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.util.Calendar;
 public class Person {
+
+   
     enum Gender //creating an enumuration for "Gender" |||| 
     {  
         Male,Female
@@ -17,14 +20,23 @@ public class Person {
     private String name;
     private int age;
     private int weight;
+    private int birthDay;
+    private int birthMonth;
+    private int birthYear;
     private static String genderT=(JOptionPane.showInputDialog("Enter Gender: "));
     
-    public static Person addPerson(String _name,Gender _gender,int _age, int _weight)
+    
+    public static Person addPerson(String _name,Gender _gender, int _weight,int _bDay,int _bMonth,int _bYear)
     {
-        Person temp =new Person(_name,_gender,_weight,_age);
+        Person temp =new Person(_name,_gender,_weight,_bDay,_bMonth,_bYear);
         people.add(temp);
         return(temp);
     }
+    public static void addPerson(Person _person)
+    {
+        people.add(_person);
+    }
+    
     Person()
     {
         name="none";
@@ -32,12 +44,14 @@ public class Person {
         age=0;
         weight=0;
     }
-    Person(String _name, Gender _gender,int _age,int _weight)
+    Person(String _name, Gender _gender,int _weight,int _bDay,int _bMonth,int _bYear)
     {
         name=_name;
         gender=_gender;
-        age=_age;
         weight=_weight;
+        birthDay=_bDay;
+        birthMonth=_bMonth;
+        birthYear=_bYear;
     }
     public void setGender(Gender _gender)
     {
@@ -65,13 +79,42 @@ public class Person {
         return(weight);
     }
     
+    public void setBirthdate(int _day,int _month,int _year)
+    {
+        birthDay=_day;
+        birthMonth=_month;
+        birthYear=_year;
+    }
+    public int getBDAY()
+    {
+        return(birthDay);
+    }
+    public int getBMONTH()
+    {
+        return(birthMonth);
+    }
+    public int getBYEAR()
+    {
+        return(birthYear);
+    }
+    
+    public int getAge()
+    {
+        Calendar cal = Calendar.getInstance();
+        int currentDay=cal.get(Calendar.DAY_OF_MONTH);
+        int currentMonth=cal.get(Calendar.MONTH)+1;
+        int currentYear=cal.get(Calendar.YEAR);
+        
+        int ageDay=currentDay-birthDay;
+        int ageMonth=currentMonth-birthMonth;
+        int ageYear=currentYear-birthYear;
+        System.out.println((char)27 +"[36m"+name+ " " + ageYear);
+        
+        return (ageYear);
+    }
     public void setAge(int _age)
     {
         age=_age;
-    }
-    public int getAge()
-    {
-        return(age);
     }
     
     public static void printNames()
@@ -118,19 +161,57 @@ public class Person {
     
     public String toString()
     {
-        return(name+" Gender: "+gender+" Weight: "+weight+" Age: "+age);
+        return(name+" | Gender: "+gender+" Weight: "+weight+" Birthdate: "+birthDay+"-"+birthMonth+"-"+birthYear);
     }
     
     
-    public static void printAllInfo(String _name,Gender _gender,int _age,int _weight)
+    public static void printAllInfo()
     {
-        System.out.println("================\n"+_name);
         for(Person temp : people)
         {
-                System.out.println(temp.getName());
-                System.out.println(temp.getGender());
-                System.out.println(temp.getAge());
-                System.out.println(temp.getWeight());
+            String s = (char)27+"[36m"+temp.getName();
+            System.out.println(s);
+            s = null;
+            System.out.println(" | Gender: "+temp.getGender()+" Weight: "+temp.getWeight()+" Birthdate: "+temp.getBDAY()+"-"+temp.getBMONTH()+"-"+temp.getBYEAR());
         }   
+    }
+    public static void printAllAges()
+    {
+        for(Person temp : people)
+        {
+            temp.getAge();
+        }
+        
+        
+        
+    }
+    public static void ChangeAllWeights()
+    {
+        for(Person temp : people)
+        {
+            if(temp.getWeight()>=100)
+                temp.setWeight(temp.getWeight()+((int)((Math.random()*25)-6)));
+        }
+    }
+    public static void ChangeAllAges()
+    {
+        for(Person temp : people)
+        {
+                temp.setAge(temp.getAge()+1);
+        }
+    }
+    public static void PrintAllWeights()
+    {
+        for(Person temp : people)
+        {
+            System.out.println(temp.getWeight());
+        }
+    }
+    public static void PrintAllAges()
+    {
+        for(Person temp : people)
+        {
+            System.out.println(temp.getAge());
+        }
     }
 }
