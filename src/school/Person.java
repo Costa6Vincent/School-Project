@@ -15,7 +15,7 @@ public class Person {
     }
     public static int numPeople=10;
     private static int currentPeopleIndex=0;
-    private static ArrayList<Person>people= new ArrayList<>();
+    protected static ArrayList<Person>people= new ArrayList<Person>();
     private Gender gender;
     private String name;
     private int age;

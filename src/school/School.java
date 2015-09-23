@@ -2,16 +2,6 @@ package school;
 public class School {
     public static void main(String[] args) {
         //Parameter (name, gender, weight, birthday, birthmonth, birthyear)
-        Person Joe = Person.addPerson("Joe",Person.Gender.Male,150,4,8,2001);
-        Person Jill = Person.addPerson("Jill",Person.Gender.Female,125,16,4,1999);
-        Person Billy = Person.addPerson("Billy",Person.Gender.Male,136,30,12,1998);
-        Person Vincent = Person.addPerson("Vincent",Person.Gender.Male,150,4,8,1999);
-        Person Anna = Person.addPerson("Anna Marie",Person.Gender.Female,125,5,14,2000);
-        Person Ray = Person.addPerson("Ray",Person.Gender.Male,125,6,14,1999);
-        Person Kayleen = Person.addPerson("Kayleen",Person.Gender.Female,125,8,5,1997);
-        Person Taliah = Person.addPerson("Taliah",Person.Gender.Female,125,9,26,2000);
-        Person Daphne = Person.addPerson("Daphne",Person.Gender.Female,125,6,14,2001);
-        Person Ashley = Person.addPerson("Ashley",Person.Gender.Female,125,8,12,2000);
         //Parameter (name, type, period, \capacity\, \teacher\)
         Course Weights1 = Course.addCourse("Weights 1", Course.Type.PE, 1);
         Course Weights2 = Course.addCourse("Weights 2", Course.Type.PE, 1);
@@ -32,15 +22,24 @@ public class School {
         Course Integrate2 = Course.addCourse("Integrated2", Course.Type.Math, 6);
         Course Integrate3 = Course.addCourse("Integrated3", Course.Type.Math, 6);
         
-        
         //Parameter (name, gender, weight,grade level, birthday, birthmonth, birthyear)
+        Person Idiot=Person.addPerson("Idiot",Person.Gender.Male,150,4,8,1999);
         Student Bobby=Student.addStudent("Bobby",Person.Gender.Male,150,10,4,8,1999);
         Student Mike=Student.addStudent("Mike",Person.Gender.Male,200,10,9,12,1998);
         Student Kid=Student.addStudent("Kid",Person.Gender.Male,175,9,16,4,2000);
+        Student Joe = Student.addStudent("Joe",Person.Gender.Male,150,10,4,8,2001);
+        Student Billy = Student.addStudent("Billy",Person.Gender.Male,136,10,30,12,1998);
+        Student Vincent = Student.addStudent("Vincent",Person.Gender.Male,150,10,4,8,1999);
+        Student Anna = Student.addStudent("Anna Marie",Person.Gender.Female,125,10,5,14,2000);
+        Student Ray = Student.addStudent("Ray",Person.Gender.Male,125,10,6,14,1999);
+        Student Kayleen = Student.addStudent("Kayleen",Person.Gender.Female,125,10,8,5,1997);
+        Student Taliah = Student.addStudent("Taliah",Person.Gender.Female,125,10,9,26,2000);
+        Student Daphne = Student.addStudent("Daphne",Person.Gender.Female,125,10,6,14,2001);
+        Student Ashley = Student.addStudent("Ashley",Person.Gender.Female,125,10,8,12,2000);
         
         //Prints all General Info of Students and Classes
         Start.lineSkip("Printing All Student Info...");
-        Person.printAllInfo();
+        Student.printAllInfo();
         Start.lineSkip("Printing All Class Info...");
         Course.printAllClasses();
         Start.lineSkip("Printing All Student Ages...");

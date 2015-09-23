@@ -34,6 +34,19 @@ public class Student extends Person{
             _course.addStudent(this);
         }
     }
+    public static void printAllInfo()
+    {
+        for(Person temp : people)
+        {
+            if(temp instanceof Student)
+            {
+                String s = (char)27+"[36m"+temp.getName();
+                System.out.println(s);
+                s = null;
+                System.out.println(" | Gender: "+temp.getGender()+" Weight: "+temp.getWeight()+" Birthdate: "+temp.getBDAY()+"-"+temp.getBMONTH()+"-"+temp.getBYEAR());
+            }
+        }   
+    }
     
     
 }
