@@ -107,10 +107,10 @@ public class Person {
         
         int ageDay=currentDay-birthDay;
         int ageMonth=currentMonth-birthMonth;
-        int ageYear=currentYear-birthYear;
-        System.out.println((char)27 +"[36m"+name+ " " + ageYear);
+        age=currentYear-birthYear;
+        System.out.println((char)27 +"[36m"+name+ " " + age);
         
-        return (ageYear);
+        return (age);
     }
     public void setAge(int _age)
     {

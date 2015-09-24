@@ -1,7 +1,6 @@
 package school;
 
 public class Student extends Person{
-    
     private int gradeLevel;
     private Course theCourse;
     
@@ -11,13 +10,11 @@ public class Student extends Person{
         addPerson(temp);
         return(temp);
     }
-    
     Student(String _name, Gender _gender,int _weight,int _gradeLevel,int _bDay,int _bMonth,int _bYear)
     {
         super(_name,_gender,_weight,_bDay,_bMonth,_bYear);
         gradeLevel = _gradeLevel;
     }
-    
     public void setgradeLevel(int _gradeLevel)
     {
         gradeLevel=_gradeLevel;
@@ -45,7 +42,7 @@ public class Student extends Person{
                 s = null;
                 System.out.println(" | Gender: "+temp.getGender()+" Weight: "+temp.getWeight()+" Birthdate: "+temp.getBDAY()+"-"+temp.getBMONTH()+"-"+temp.getBYEAR());
             }
-        }   
+        }
     }
     
     

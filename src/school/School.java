@@ -21,7 +21,6 @@ public class School {
         Course Integrate1 = Course.addCourse("Integrated1", Course.Type.Math, 6);
         Course Integrate2 = Course.addCourse("Integrated2", Course.Type.Math, 6);
         Course Integrate3 = Course.addCourse("Integrated3", Course.Type.Math, 6);
-        
         //Parameter (name, gender, weight,grade level, birthday, birthmonth, birthyear)
         Person Idiot=Person.addPerson("Idiot",Person.Gender.Male,150,4,8,1999);
         Student Bobby=Student.addStudent("Bobby",Person.Gender.Male,150,10,4,8,1999);
@@ -36,7 +35,6 @@ public class School {
         Student Taliah = Student.addStudent("Taliah",Person.Gender.Female,125,10,9,26,2000);
         Student Daphne = Student.addStudent("Daphne",Person.Gender.Female,125,10,6,14,2001);
         Student Ashley = Student.addStudent("Ashley",Person.Gender.Female,125,10,8,12,2000);
-        
         //Prints all General Info of Students and Classes
         Start.lineSkip("Printing All Student Info...");
         Student.printAllInfo();
@@ -44,9 +42,6 @@ public class School {
         Course.printAllClasses();
         Start.lineSkip("Printing All Student Ages...");
         Person.printAllAges();
-        
-
-        
         //Simulation
         boolean Simulation = Start.SimulationWarning();
         if(Simulation)
@@ -54,6 +49,7 @@ public class School {
             while(true)
             {
                 Person.ChangeAllWeights();
+                Person.ChangeAllAges();
                 Person.printAllInfo();
                 Person.PrintAllAges();
                 
