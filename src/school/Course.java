@@ -8,6 +8,11 @@ public class Course {
     private Type type;
     private int period;
     private Student theStudent;
+    private Teacher theTeacher;
+    private static int numClasses;
+    public static int numClass=10;
+    private static int currentClass=0;
+    private static ArrayList<Course>courses= new ArrayList<>();
 
     public void addStudent(Student _student)
     {
@@ -17,15 +22,35 @@ public class Course {
             _student.addCourse(this);
         }
     }
+    public void addTeacher(Teacher _teacher)
+    {
+        if(theTeacher==null)
+        {
+            theTeacher=_teacher;
+            _teacher.addCourse(this);
+        }
+    }
+    public void setStudentDoIt(Course _course) {
+        courses.add(this);
+    }
+
+    public void setStudentDoIt(Student _student) 
+    {
+        courses.add(this);
+    }
+    public boolean setStudentOk(Student _student) 
+    {
+        return(true);
+    }
+
+    
     
     
     enum Type
     {
         Math,Science,History,English,Language,Elective,PE
     }
-    public static int numClass=10;
-    private static int currentClass=0;
-    private static ArrayList<Course>courses= new ArrayList<>();
+   
     
     public static Course addCourse(String _name,Type _type,int _period)
     {
@@ -38,6 +63,7 @@ public class Course {
         name="none";
         type=null;
         period=0;
+        numClasses=0;
     }
     Course(String _name, Type _type,int _period)
     {
@@ -60,6 +86,9 @@ public class Course {
     }
     public String getName() {
         return (name);
+    }
+    public Student getStudent() {
+        return (theStudent);
     }
     
     public void setPeriod(int _period)
@@ -92,8 +121,12 @@ public class Course {
         for(Course temp : courses)
         {
             if(temp != null)
+            {
                 System.out.println("Class: "+temp.getName()+" Period: "+temp.getPeriod()+" Type: "+temp.getType());
+            }
+            numClasses++;
         }   
+        System.out.println("Number of Classes: "+numClasses);
     }
     
     

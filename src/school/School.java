@@ -35,13 +35,29 @@ public class School {
         Student Taliah = Student.addStudent("Taliah",Person.Gender.Female,125,10,9,26,2000);
         Student Daphne = Student.addStudent("Daphne",Person.Gender.Female,125,10,6,14,2001);
         Student Ashley = Student.addStudent("Ashley",Person.Gender.Female,125,10,8,12,2000);
-        //Prints all General Info of Students and Classes
+        
+        Teacher Yee = Teacher.addTeacher("Mr. Yee", Person.Gender.Male, 150, 20.0, 6, 6, 1966);
+        Teacher Yip = Teacher.addTeacher("Mr. Yip", Person.Gender.Male, 150, 2.5, 2, 28, 1975);
+        Teacher Abruzzo = Teacher.addTeacher("Mr. Abruzzo", Person.Gender.Male, 150, 12.0, 9, 2, 1962);
+        Teacher Stearman = Teacher.addTeacher("Mrs. Stearman", Person.Gender.Female, 120, 2.5, 2, 28, 1975);
+        
+        ComputerScience1.addTeacher(Yee);
+        ComputerScience2.addTeacher(Yee);
+        ComputerScience3.addTeacher(Yee);
+        PLTWIED.addTeacher(Yip);
+        PLTWPRTCL.addTeacher(Yip);
+        PLTWAS.addTeacher(Yip);
+        PLTWPRTCL.addStudent(Vincent);
+        PLTWPRTCL.addStudent(Billy);
+        //Prints all General Info of Students, Teachers, and Classes
+        Start.lineSkip("Printing All Teacher Info...");
+        Teacher.printAllInfo();
         Start.lineSkip("Printing All Student Info...");
         Student.printAllInfo();
         Start.lineSkip("Printing All Class Info...");
         Course.printAllClasses();
-        Start.lineSkip("Printing All Student Ages...");
-        Person.printAllAges();
+        
+        Yip.printStudentTeacherTeaches();
         //Simulation
         boolean Simulation = Start.SimulationWarning();
         if(Simulation)
@@ -52,7 +68,6 @@ public class School {
                 Person.ChangeAllAges();
                 Person.printAllInfo();
                 Person.PrintAllAges();
-                
             }
         }
     }

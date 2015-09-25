@@ -13,9 +13,7 @@ public class Person {
     {  
         Male,Female
     }
-    public static int numPeople=10;
-    private static int currentPeopleIndex=0;
-    protected static ArrayList<Person>people= new ArrayList<Person>();
+    protected static ArrayList<Person>people= new ArrayList<>();
     private Gender gender;
     private String name;
     private int age;
@@ -23,12 +21,19 @@ public class Person {
     private int birthDay;
     private int birthMonth;
     private int birthYear;
+    private double rudeFactor;
     private static String genderT=(JOptionPane.showInputDialog("Enter Gender: "));
     
     
     public static Person addPerson(String _name,Gender _gender, int _weight,int _bDay,int _bMonth,int _bYear)
     {
         Person temp =new Person(_name,_gender,_weight,_bDay,_bMonth,_bYear);
+        people.add(temp);
+        return(temp);
+    }
+    public static Person addTeacher(String _name,Gender _gender, int _weight,double _rudeFactor,int _bDay,int _bMonth,int _bYear)
+    {
+        Person temp =new Person(_name,_gender,_weight,_rudeFactor,_bDay,_bMonth,_bYear);
         people.add(temp);
         return(temp);
     }
@@ -52,6 +57,16 @@ public class Person {
         birthDay=_bDay;
         birthMonth=_bMonth;
         birthYear=_bYear;
+    }
+    Person(String _name, Gender _gender,int _weight,double _rudeFactor,int _bDay,int _bMonth,int _bYear)
+    {
+        name=_name;
+        gender=_gender;
+        weight=_weight;
+        birthDay=_bDay;
+        birthMonth=_bMonth;
+        birthYear=_bYear;
+        rudeFactor=_rudeFactor;
     }
     public void setGender(Gender _gender)
     {
@@ -77,6 +92,10 @@ public class Person {
     public int getWeight()
     {
         return(weight);
+    }
+    public double getRudeFactor()
+    {
+        return(rudeFactor);
     }
     
     public void setBirthdate(int _day,int _month,int _year)
@@ -175,15 +194,21 @@ public class Person {
             System.out.println(" | Gender: "+temp.getGender()+" Weight: "+temp.getWeight()+" Birthdate: "+temp.getBDAY()+"-"+temp.getBMONTH()+"-"+temp.getBYEAR());
         }   
     }
-    public static void printAllAges()
+    public static void printAllStudentAges()
     {
         for(Person temp : people)
         {
-            temp.getAge();
+            if(temp instanceof Student)
+                temp.getAge();
         }
-        
-        
-        
+    }
+    public static void printAllTeacherAges()
+    {
+        for(Person temp : people)
+        {
+            if(temp instanceof Teacher)
+                temp.getAge();
+        }
     }
     public static void ChangeAllWeights()
     {
